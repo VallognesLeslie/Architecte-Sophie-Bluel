@@ -75,10 +75,3 @@ const displayLoginError = () => {
     loginForm.appendChild(errorMessage);
   }
 };
-//   exercice mentor
-//  ________1_____________
-// const tonNom = prompt("Quelle est ton nom");
-// console.log(`Bonjour ${tonNom} !`);
-
-//  ________2_____________
-// const donneUnNombre = Number(prompt("Donne un chiffre entre 1 et 10"));
