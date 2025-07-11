@@ -18,9 +18,11 @@
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
         <ul>
-          <li><a href="#portfolio">projets</li></a>
-          <li><a href="#contact">contact</li></a>
-          <li>login</li>
+          <li><a href="#portfolio">projets</a></li>
+          <li><a href="#contact">contact</a></li>
+          <li>
+            <a href="./login.html" onclick="openLoginWindow(event)">login</a>
+          </li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -67,7 +69,6 @@
         </form>
       </section>
     </main>
-
     <footer>
       <nav>
         <ul>
@@ -75,6 +76,25 @@
         </ul>
       </nav>
     </footer>
+    <script>
+      // Pour que la page du login soit une popup
+      const openLoginWindow = (event) => {
+        event.preventDefault();
+
+        const width = 1250;
+        const height = 850;
+
+        // Calculer position pour centrer
+        const left = window.screen.width / 2 - width / 2;
+        const top = window.screen.height / 2 - height / 2;
+
+        window.open(
+          "login.html",
+          "LoginPopup",
+          `width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=no`
+        );
+      };
+    </script>
     <script src="scripts/index.js"></script>
   </body>
 </html>
