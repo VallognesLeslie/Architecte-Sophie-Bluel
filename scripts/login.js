@@ -1,7 +1,7 @@
-console.log("Fichier JS charger");
-
 // ## Compte de test pour Sophie Bluel
 // sophie.bluel@test.tld    S0phie
+
+console.log("Fichier JS charger");
 
 //récupère le formulaire
 const loginForm = document.getElementById("loginForm");
@@ -28,12 +28,12 @@ loginForm.addEventListener("submit", (event) => {
     headers: {
       "Content-Type": "application/json", // Type des données envoyées
     },
-    body: JSON.stringify(loginData), // Transforme les données en chaîne JSON
+    body: JSON.stringify(loginData), // Transforme les données en chaîne JSON c’est obligatoire ici car le serveur attend un corps de requête de type JSON
   })
     .then((response) => {
       //si l'utilisateur n'existe pas ou erreur = affiche un message
       if (response.status === 404 || response.status === 401) {
-        displayLoginError(); // Appelle une fonction d’erreur
+        displayLoginError("Erreur dans l’identifiant ou le mot de passe"); // Appelle une fonction d’erreur
         return null;
       }
       //si tout est ok = on passe à la suite
@@ -42,36 +42,41 @@ loginForm.addEventListener("submit", (event) => {
 
     .then((data) => {
       if (data) {
-        //stocke le token dans le navigateur
+        // Supprime un ancien token si jamais il existe
+        localStorage.removeItem("token");
+
+        // Stocke le nouveau token de connexion
         localStorage.setItem("token", data.token);
 
-        //recharge la page principale
-        if (window.opener && !window.opener.closed) {
-          window.opener.location.reload();
-        }
-
-        //ferme la popup
-        window.close();
+        // Redirige vers la page d'accueil
+        window.location.href = "index.html";
       }
-    })
+    }) // Message d’erreur si back coupé
     .catch((error) => {
-      console.error("Erreur de connexion :", error);
-      displayLoginError(); //en cas de problème technique
+      console.error("Erreur de connexion au serveur :", error);
+      displayLoginError(
+        "Le serveur est inaccessible. Merci de réessayer plus tard."
+      );
     });
 });
 
-// Fonction pour afficher un message d’erreur simple
-const displayLoginError = () => {
-  // vérifie si un message existe déjà
-  const existingError = document.getElementById("login-error");
-  if (!existingError) {
-    const errorMessage = document.createElement("p");
-    errorMessage.id = "login-error";
-    errorMessage.textContent = "Erreur dans l’identifiant ou le mot de passe";
-    errorMessage.style.color = "red";
-    errorMessage.style.marginTop = "30px";
+// Fonction pour afficher un message d’erreur
+const displayLoginError = (errorMessage) => {
+  // Supprime un ancien message s’il existe
+  let errorMessageDom = document.getElementById("login-error");
+  if (!errorMessageDom) {
+    errorMessageDom = document.createElement("p");
+    errorMessageDom.id = "login-error";
+    errorMessageDom.style.color = "red";
+    errorMessageDom.style.margin = "30px 0 20px 0";
+    errorMessageDom.style.textAlign = "center";
+    errorMessageDom.style.fontStyle = "italic";
+    errorMessageDom.style.fontSize = "20px";
 
-    // Ajoute le message sous le formulaire
-    loginForm.appendChild(errorMessage);
+    // Insertion juste avant le bouton "Se connecter"
+    loginForm.parentNode.insertBefore(errorMessageDom, loginForm);
   }
+
+  errorMessageDom.textContent =
+    errorMessage || "Impossible de se connecter, merci de réessayer plus tard.";
 };

@@ -7,6 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
       rel="stylesheet"
     />
@@ -14,6 +19,23 @@
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
+    <div id="edition-bar" class="hidden">
+      <i class="fa-regular fa-pen-to-square"></i>
+      <span>Mode édition</span>
+    </div>
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3>Galerie photo</h3>
+        <div class="modal-gallery" id="modalGallery">
+          <!-- Images ajoutées dynamiquement -->
+        </div>
+        <button class="add-photo-btn" id="openAddPhoto">
+          Ajouter une photo
+        </button>
+      </div>
+    </div>
+
     <header>
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
@@ -76,25 +98,7 @@
         </ul>
       </nav>
     </footer>
-    <script>
-      // Pour que la page du login soit une popup
-      const openLoginWindow = (event) => {
-        event.preventDefault();
-
-        const width = 1250;
-        const height = 850;
-
-        // Calculer position pour centrer
-        const left = window.screen.width / 2 - width / 2;
-        const top = window.screen.height / 2 - height / 2;
-
-        window.open(
-          "login.html",
-          "LoginPopup",
-          `width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=no`
-        );
-      };
-    </script>
     <script src="scripts/index.js"></script>
+    <script src="scripts/modal.js"></script>
   </body>
 </html>

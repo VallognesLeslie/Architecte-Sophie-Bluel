@@ -174,34 +174,37 @@ li:hover {
 	width: 100%;
 
 }
-#contact  {
+#contact , #login {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
-#contact > * {
+#contact > *, #login > *  {
 	text-align: center;
 
 }
-#contact h2{
+#contact h2, #login h2{
 	margin-bottom: 20px;
 }
-#contact form {
+#contact form, #login form {
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input {
+#contact input, #login input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+#contact input[type="submit"], #login input[type="submit"] {
+  cursor: pointer;
+}
+#contact label, #login label {
 	margin: 2em 0 1em 0;
 }
-#contact textarea {
+#contact textarea, #login textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -244,4 +247,118 @@ footer nav ul {
 footer {
 	background-color: white;
 	width: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#edition-bar {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background: white;
+  padding: 3rem 2rem 2rem 2rem;
+  border-radius: 10px;
+  position: relative;
+  width: 630px ; 
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close-modal {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 25px;
+  cursor: pointer;
+}
+/* Styles pour la modale de galerie */
+.modal h3 {
+  font-family: 'Work Sans';
+  font-size: 26px;
+  font-weight: 400;
+  color: #000;
+  text-align: center;
+  margin-bottom: 46px;
+}
+
+.modal-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px; /* Gap plus grand */
+  margin-bottom: 38px;
+  padding-bottom: 47px;
+  border-bottom: 1px solid #B3B3B3;
+  max-width: 520px; /* Limite la largeur du trait */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-work-item {
+  position: relative;
+}
+
+.modal-work-item img {
+  width: 100%;
+  height: 110px; 
+  object-fit: cover;
+  /* Supprime le fond noir sous les images */
+}
+
+.delete-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: #000;
+  color: white;
+  border: none;
+  width: 17px;
+  height: 17px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px; 
+
+}
+
+.delete-btn:hover {
+  background: #B1663C;
+}
+
+.add-photo-btn {
+  font-family: 'Syne';
+  font-weight: 700;
+  color: white;
+  background-color: #1D6154;
+  border: none;
+  border-radius: 60px;
+  padding: 10px 50px;
+  font-size: 14px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  
+}
+
+.add-photo-btn:hover {
+  background-color: #0d4a3a;
 }
