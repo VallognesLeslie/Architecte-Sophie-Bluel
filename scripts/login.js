@@ -1,20 +1,16 @@
 // ## Compte de test pour Sophie Bluel
 // sophie.bluel@test.tld    S0phie
 
-console.log("Fichier JS charger");
-
 //récupère le formulaire
 const loginForm = document.getElementById("loginForm");
 
 //écoute le clic sur "Se connecter"
 loginForm.addEventListener("submit", (event) => {
   event.preventDefault(); // Empêche l'envoi automatique du formulaire
-  console.log("Formulaire");
 
   // Récupère les champs email et mot de passe
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  console.log("E-mail saisie :", email);
 
   // requête (format JSON)
   const loginData = {

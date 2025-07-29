@@ -143,7 +143,7 @@ li:hover {
     padding-bottom: 40px;
 }
 
-.filtre-btn {
+.filter-btn {
   font-family: 'Syne', sans-serif;
   color: #1D6154;
   background-color: white;
@@ -156,7 +156,7 @@ li:hover {
   transition: all 0.3s ease;
 }
 
-.filtre-btn:hover {
+.filter-btn:hover {
   background-color: #1D6154;
   color: white;
 }
@@ -361,4 +361,196 @@ footer {
 
 .add-photo-btn:hover {
   background-color: #0d4a3a;
+}
+
+
+/* Ajustements de la modale */
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  position: relative;
+  width: 480px; /* Réduit de 630px à 480px */
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Styles pour la modale d'ajout de photo */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #000;
+  padding: 5px;
+}
+
+.back-btn:hover {
+  color: #B1663C;
+}
+
+/* Zone d'upload - dimensions exactes Figma */
+.upload-area {
+  background-color: #E8F1F6;
+  border-radius: 3px;
+  width: 420px;
+  height: 170px;
+  text-align: center;
+  margin: 0 auto 30px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.upload-icon {
+  font-size: 58px;
+  color: #B9C5CC;
+  margin-bottom: 10px;
+}
+
+.upload-btn {
+  background-color: #CBD6DC;
+  color: #306685;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 33px;
+  font-family: 'Work Sans';
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 7px;
+}
+
+.upload-btn:hover {
+  background-color: #B9C5CC;
+}
+
+.upload-info {
+  font-family: 'Work Sans';
+  font-size: 11px;
+  color: #444444;
+  margin: 0;
+}
+
+/* Aperçu de l'image */
+.image-preview {
+  position: relative;
+  max-width: 129px;
+  margin: 0 auto;
+}
+
+.image-preview img {
+  width: 100%;
+  height: auto;
+  max-height: 169px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.change-image-btn {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.change-image-btn:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Groupes de formulaire */
+.form-group {
+  margin-bottom: 21px;
+  padding: 0 30px; /* Ajout de padding sur les côtés */
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Work Sans';
+  font-size: 14px;
+  font-weight: 500;
+  color: #3D3D3D;
+  margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  height: 51px;
+  border: none;
+  background-color: white;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  font-family: 'Work Sans';
+  font-size: 14px;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: 2px solid #1D6154;
+}
+
+/* Bouton de validation */
+.validate-btn {
+  font-family: 'Syne';
+  font-weight: 700;
+  color: white;
+  background-color: #A7A7A7;
+  border: none;
+  border-radius: 60px;
+  padding: 10px 39px;
+  font-size: 14px;
+  cursor: pointer;
+  display: block;
+  margin: 32px auto 0 auto;
+  width: 237px;
+  height: 36px;
+}
+
+.validate-btn:not(:disabled) {
+  background-color: #1D6154;
+}
+
+.validate-btn:not(:disabled):hover {
+  background-color: #0d4a3a;
+}
+
+.validate-btn:disabled {
+  cursor: not-allowed;
+}
+
+/* Ajustements pour la largeur de la modale */
+.modal-content form {
+  width: 100%;
+}
+
+/* Style pour le séparateur dans la première modale */
+.modal-gallery {
+  border-bottom: 1px solid #B3B3B3;
+  padding-bottom: 47px;
+  margin-bottom: 38px;
 }
