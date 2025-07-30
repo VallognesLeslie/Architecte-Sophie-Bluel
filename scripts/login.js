@@ -1,6 +1,3 @@
-// ## Compte de test pour Sophie Bluel
-// sophie.bluel@test.tld    S0phie
-
 //récupère le formulaire
 const loginForm = document.getElementById("loginForm");
 

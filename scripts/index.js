@@ -190,21 +190,27 @@ const enableEditMode = () => {
   }
 
   // Création du bouton déconnexion
-  const logoutBtn = document.createElement("button");
-  logoutBtn.textContent = "Log out";
-  logoutBtn.classList.add("logout-button");
-  logoutBtn.style.marginLeft = "auto";
-  logoutBtn.style.padding = "5px 10px";
-  logoutBtn.style.cursor = "pointer";
-  logoutBtn.style.border = "none";
-  logoutBtn.style.backgroundColor = "#fff";
-  logoutBtn.style.color = "#000";
-  logoutBtn.style.fontSize = "14px";
+  // Remplace le lien "login" par "logout" dans la navigation
+  const navElements = document.getElementsByTagName("nav");
+  if (navElements.length > 0) {
+    const nav = navElements[0];
+    const allLinks = nav.getElementsByTagName("a");
 
-  logoutBtn.addEventListener("click", () => {
-    localStorage.removeItem("token");
-    window.location.reload();
-  });
+    // Cherche le lien vers login.html
+    for (let i = 0; i < allLinks.length; i++) {
+      if (allLinks[i].href.includes("login.html")) {
+        const loginLink = allLinks[i];
+        loginLink.textContent = "logout";
+        loginLink.href = "#"; // Enlève le lien vers login.html
 
-  editBar.appendChild(logoutBtn);
+        // Ajoute l'événement de déconnexion
+        loginLink.addEventListener("click", (e) => {
+          e.preventDefault(); // Empêche la navigation
+          localStorage.removeItem("token");
+          window.location.reload();
+        });
+        break; // Sort de la boucle une fois trouvé
+      }
+    }
+  }
 };
