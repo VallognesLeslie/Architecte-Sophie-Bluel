@@ -147,7 +147,7 @@ const enableEditMode = () => {
   // Cache les filtres
   const filters = document.getElementsByClassName("menu-categories")[0];
   if (filters) {
-    filters.style.display = "none";
+    filters.classList.add("hidden");
   }
 
   // Recherche le <h2> dans le portfolio
@@ -165,20 +165,10 @@ const enableEditMode = () => {
     const editBtn = document.createElement("button");
     editBtn.id = "editGallery";
     editBtn.innerHTML = `<i class="fa-regular fa-pen-to-square"></i> modifier`;
-    editBtn.style.background = "none";
-    editBtn.style.border = "none";
-    editBtn.style.color = "#000";
-    editBtn.style.fontSize = "14px";
-    editBtn.style.cursor = "pointer";
-    editBtn.style.marginLeft = "30px";
-    editBtn.style.display = "flex";
-    editBtn.style.alignItems = "center";
-    editBtn.style.gap = "8px";
+    editBtn.classList.add("edit-btn");
 
     if (h2) {
-      h2.style.display = "flex";
-      h2.style.alignItems = "center";
-      h2.style.justifyContent = "center";
+      h2.classList.add("portfolio-header");
       h2.appendChild(editBtn);
     }
 

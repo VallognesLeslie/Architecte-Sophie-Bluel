@@ -18,23 +18,83 @@
     <meta name="description" content="" />
     <link rel="stylesheet" href="assets/style.css" />
   </head>
+  <div id="edition-bar" class="hidden">
+    <i class="fa-regular fa-pen-to-square"></i>
+    <span>Mode édition</span>
+  </div>
   <body>
-    <div id="edition-bar" class="hidden">
-      <i class="fa-regular fa-pen-to-square"></i>
-      <span>Mode édition</span>
-    </div>
+    <!-- Modale principale -->
     <div id="modal" class="modal hidden">
       <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h3>Galerie photo</h3>
-        <div class="modal-gallery" id="modalGallery">
-          <!-- Images ajoutées dynamiquement -->
-        </div>
-        <button class="add-photo-btn" id="addPhotoBtn">
-          Ajouter une photo
-        </button>
+        <!-- Le contenu sera injecté ici via les templates -->
       </div>
     </div>
+
+    <!-- Template pour la galerie modale -->
+    <template id="modal-gallery-template">
+      <span class="close-modal">&times;</span>
+      <h3>Galerie photo</h3>
+      <div class="modal-gallery" id="modalGallery">
+        <!-- Images ajoutées dynamiquement -->
+      </div>
+      <button class="add-photo-btn" id="addPhotoBtn">Ajouter une photo</button>
+    </template>
+
+    <!-- Template pour l'ajout de photo -->
+    <template id="add-photo-template">
+      <div class="modal-header">
+        <button class="back-btn" id="backBtn">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <span class="close-modal">&times;</span>
+      </div>
+      <h3>Ajout photo</h3>
+
+      <form id="addWorkForm" enctype="multipart/form-data">
+        <div class="upload-area" id="uploadArea">
+          <div class="upload-placeholder" id="uploadPlaceholder">
+            <i class="fa-regular fa-image upload-icon"></i>
+            <button type="button" class="upload-btn" id="uploadBtn">
+              + Ajouter photo
+            </button>
+            <p class="upload-info">jpg, png : 4mo max</p>
+          </div>
+          <div class="image-preview hidden" id="imagePreview">
+            <img id="previewImg" src="" alt="Aperçu" />
+            <button type="button" class="change-image-btn" id="changeImageBtn">
+              Modifier
+            </button>
+          </div>
+          <input
+            type="file"
+            id="imageInput"
+            accept="image/jpeg,image/png"
+            class="hidden"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="workTitle">Titre</label>
+          <input type="text" id="workTitle" name="title" required />
+        </div>
+
+        <div class="form-group">
+          <label for="workCategory">Catégorie</label>
+          <select id="workCategory" name="category" required>
+            <option value=""></option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          class="validate-btn disabled"
+          id="validateBtn"
+          disabled
+        >
+          Valider
+        </button>
+      </form>
+    </template>
 
     <header>
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
@@ -62,7 +122,7 @@
           </p>
           <p>
             Chaque projet sera étudié en commun, de façon à mettre en valeur les
-            volumes, les matières et les couleurs dans le respect de l’esprit
+            volumes, les matières et les couleurs dans le respect de l'esprit
             des lieux et le choix adapté des matériaux. Le suivi du chantier
             sera assuré dans le souci du détail, le respect du planning et du
             budget.
@@ -74,7 +134,7 @@
         </article>
       </section>
       <section id="portfolio">
-        <h2>Mes Projets</h2>
+        <h2>Mes projets</h2>
         <div class="gallery"></div>
       </section>
       <section id="contact">

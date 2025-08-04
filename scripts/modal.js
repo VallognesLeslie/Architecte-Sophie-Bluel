@@ -23,17 +23,22 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+// Fonction utilitaire pour utiliser un template
+const useTemplate = (templateId) => {
+  const template = document.getElementById(templateId);
+  return template.content.cloneNode(true);
+};
+
 // Fonction pour charger la galerie dans la modale
 const loadModalGallery = () => {
   const modalContent = document.getElementsByClassName("modal-content")[0];
 
-  // Contenu HTML de la première modale (galerie)
-  modalContent.innerHTML = `
-    <span class="close-modal">&times;</span>
-    <h3>Galerie photo</h3>
-    <div class="modal-gallery" id="modalGallery"></div>
-    <button class="add-photo-btn" id="addPhotoBtn">Ajouter une photo</button>
-  `;
+  // Utilisation du template
+  const galleryTemplate = useTemplate("modal-gallery-template");
+
+  // Vider le contenu actuel et injecter le template
+  modalContent.innerHTML = "";
+  modalContent.appendChild(galleryTemplate);
 
   // Réattacher les événements de fermeture
   attachCloseEvents();
@@ -71,45 +76,12 @@ const loadModalGallery = () => {
 const showAddPhotoModal = () => {
   const modalContent = document.getElementsByClassName("modal-content")[0];
 
-  // Contenu HTML de la deuxième modale (ajout photo)
-  modalContent.innerHTML = `
-    <div class="modal-header">
-      <button class="back-btn" id="backBtn">
-        <i class="fa-solid fa-arrow-left"></i>
-      </button>
-      <span class="close-modal">&times;</span>
-    </div>
-    <h3>Ajout photo</h3>
-    
-    <form id="addWorkForm" enctype="multipart/form-data">
-      <div class="upload-area" id="uploadArea">
-        <div class="upload-placeholder" id="uploadPlaceholder">
-          <i class="fa-regular fa-image upload-icon"></i>
-          <button type="button" class="upload-btn" id="uploadBtn">+ Ajouter photo</button>
-          <p class="upload-info">jpg, png : 4mo max</p>
-        </div>
-        <div class="image-preview" id="imagePreview" style="display: none;">
-          <img id="previewImg" src="" alt="Aperçu">
-          <button type="button" class="change-image-btn" id="changeImageBtn">Modifier</button>
-        </div>
-        <input type="file" id="imageInput" accept="image/jpeg,image/png" style="display: none;">
-      </div>
-      
-      <div class="form-group">
-        <label for="workTitle">Titre</label>
-        <input type="text" id="workTitle" name="title" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="workCategory">Catégorie</label>
-        <select id="workCategory" name="category" required>
-          <option value=""></option>
-        </select>
-      </div>
-      
-      <button type="submit" class="validate-btn" id="validateBtn" disabled>Valider</button>
-    </form>
-  `;
+  // Utilisation du template
+  const addPhotoTemplate = useTemplate("add-photo-template");
+
+  // Vider le contenu actuel et injecter le template
+  modalContent.innerHTML = "";
+  modalContent.appendChild(addPhotoTemplate);
 
   // Réattacher les événements
   attachCloseEvents();
@@ -161,21 +133,6 @@ const attachAddPhotoEvents = () => {
   });
 
   // Validation du formulaire en temps réel
-  const validateForm = () => {
-    const hasImage = imageInput.files.length > 0;
-    const hasTitle = workTitle.value.trim() !== "";
-    const hasCategory = workCategory.value !== "";
-
-    const validateBtn = document.getElementById("validateBtn");
-    if (hasImage && hasTitle && hasCategory) {
-      validateBtn.disabled = false;
-      validateBtn.style.backgroundColor = "#1D6154";
-    } else {
-      validateBtn.disabled = true;
-      validateBtn.style.backgroundColor = "#A7A7A7";
-    }
-  };
-
   workTitle.addEventListener("input", validateForm);
   workCategory.addEventListener("change", validateForm);
 
@@ -207,8 +164,8 @@ const handleImageUpload = (file) => {
     const imagePreview = document.getElementById("imagePreview");
     const previewImg = document.getElementById("previewImg");
 
-    uploadPlaceholder.style.display = "none";
-    imagePreview.style.display = "block";
+    uploadPlaceholder.classList.add("hidden");
+    imagePreview.classList.remove("hidden");
     previewImg.src = e.target.result;
 
     // Vérifier la validation du formulaire
@@ -248,10 +205,12 @@ const validateForm = () => {
 
   if (hasImage && hasTitle && hasCategory) {
     validateBtn.disabled = false;
-    validateBtn.style.backgroundColor = "#1D6154";
+    validateBtn.classList.remove("disabled");
+    validateBtn.classList.add("enabled");
   } else {
     validateBtn.disabled = true;
-    validateBtn.style.backgroundColor = "#A7A7A7";
+    validateBtn.classList.remove("enabled");
+    validateBtn.classList.add("disabled");
   }
 };
 

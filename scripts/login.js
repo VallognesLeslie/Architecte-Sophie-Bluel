@@ -53,18 +53,14 @@ loginForm.addEventListener("submit", (event) => {
     });
 });
 
-// Fonction pour afficher un message d’erreur
+// Fonction pour afficher un message d'erreur
 const displayLoginError = (errorMessage) => {
-  // Supprime un ancien message s’il existe
+  // Supprime un ancien message s'il existe
   let errorMessageDom = document.getElementById("login-error");
   if (!errorMessageDom) {
     errorMessageDom = document.createElement("p");
     errorMessageDom.id = "login-error";
-    errorMessageDom.style.color = "red";
-    errorMessageDom.style.margin = "30px 0 20px 0";
-    errorMessageDom.style.textAlign = "center";
-    errorMessageDom.style.fontStyle = "italic";
-    errorMessageDom.style.fontSize = "20px";
+    errorMessageDom.classList.add("login-error-message");
 
     // Insertion juste avant le bouton "Se connecter"
     loginForm.parentNode.insertBefore(errorMessageDom, loginForm);
