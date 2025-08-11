@@ -2,7 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -16,128 +15,161 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-html, body {
-	background-color: #FFFEF8;
-	height: 100%;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-/** end reset css**/
-body {
-	max-width: 1140px;
-	margin:auto;
-	font-family: 'Work Sans' ;
-	font-size: 14px;
-}
-header {
-	display: flex;
-	justify-content: space-between;
-	margin: 50px 0 100px
-}
-section {
-	margin: 100px 0
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-h1{
-	display: flex;
-	flex-direction: column;
-	font-family: 'Syne';
-	font-size: 22px;
-	font-weight: 800;
-	color: #B1663C
+/* HTML5 display-role reset */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote::before, blockquote::after,
+q::before, q::after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html, body {
+  background-color: #FFFEF8;
+  height: 100%;
+}
+
+/* ===BASE STYLE=== */
+body {
+  max-width: 1140px;
+  margin: auto;
+  font-family: 'Work Sans';
+  font-size: 14px;
+}
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Syne';
+  font-size: 22px;
+  font-weight: 800;
+  color: #B1663C;
 }
 
 h1 > span {
-	font-family: 'Work Sans';
-	font-size:10px;
-	letter-spacing: 0.1em;
-;
+  font-family: 'Work Sans';
+  font-size: 10px;
+  letter-spacing: 0.1em;
 }
 
-h2{
-	font-family: 'Syne';
-	font-weight: 700;
-	font-size: 30px;
-	color: #1D6154
+h2 {
+  font-family: 'Syne';
+  font-weight: 700;
+  font-size: 30px;
+  color: #1D6154;
 }
+
+section {
+  margin: 100px 0;
+}
+
+/* ====HEADER & NAVIGATION==== */
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0 100px;
+}
+
 nav img {
   height: 22px;
 }
+
 nav ul {
-	display: flex;
-	align-items: center;
-	list-style-type: none;
-
+  display: flex;
+  align-items: center;
+  list-style-type: none;
 }
+
 nav li {
-	padding: 0 15px;
-	font-size: 1.2em;
+  padding: 0 15px;
+  font-size: 1.2em;
 }
 
+nav a {
+  color: #000;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+}
+
+nav a:hover,
 li:hover {
-	color: #B1663C;
+  color: #B1663C;
 }
+
+/* ====INTRODUCTION SECTION===== */
 #introduction {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
+
 #introduction figure {
-	flex: 1
+  flex: 1;
 }
+
 #introduction img {
-	display: block;
-	margin: auto;
-	width: 80%;
+  display: block;
+  margin: auto;
+  width: 80%;
 }
 
 #introduction article {
-	flex: 1
+  flex: 1;
 }
+
 #introduction h2 {
-	margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 #introduction p {
-	margin-bottom: 0.5em;
-}
-#portfolio h2 {
-	text-align: center;
-	margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
-/* Ajout du style aux filtres */
+/* ====PORTFOLIO SECTION==== */
+#portfolio h2 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.portfolio-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* ====FILTRE BUTTONS==== */
 .menu-categories {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
 }
 
 .filter-btn {
@@ -157,15 +189,15 @@ li:hover {
   background-color: #1D6154;
   color: white;
 }
-/* Fin de l'ajout */
 
+/* ====GALLERY SECTION==== */
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  max-width: 1000px; /* ou 960px, 900px selon ce que tu veux */
-  margin: 0 auto; /* centre la galerie dans la page */
-  padding: 0 50px; /* petit padding à gauche/droite si besoin */
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 50px;
 }
 
 .gallery img {
@@ -174,89 +206,95 @@ li:hover {
   object-fit: cover;
   display: block;
 }
-#contact , #login {
-	width: 50%;
-	margin: auto;
-}
-#contact > *, #login > *  {
-	text-align: center;
 
+/* ====CONTACT & LOGIN==== */
+#contact, #login {
+  width: 50%;
+  margin: auto;
 }
-#contact h2, #login h2{
-	margin-bottom: 20px;
+
+#contact > *, #login > * {
+  text-align: center;
 }
+
+#contact h2, #login h2 {
+  margin-bottom: 20px;
+}
+
 #contact form, #login form {
-	text-align: left;
-	margin-top:30px;
-	display: flex;
-	flex-direction: column;
+  text-align: left;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+#contact label, #login label {
+  margin: 2em 0 1em 0;
 }
 
 #contact input, #login input {
-	height: 50px;
-	font-size: 1.2em;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  height: 50px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
 #contact input[type="submit"], #login input[type="submit"] {
   cursor: pointer;
 }
-#contact label, #login label {
-	margin: 2em 0 1em 0;
-}
+
 #contact textarea, #login textarea {
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-/* Ajout de style au Mot de passe */
-nav a {
-    color: #000;
-    text-align: center;
-    display: block;
-	text-decoration: none;
-}
-
-nav a:hover {
-	color: #B1663C;
+input[type="submit"] {
+  font-family: 'Syne';
+  font-weight: 700;
+  color: white;
+  background-color: #1D6154;
+  margin: 2em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
 }
 
 form a {
- 	color: #000;
-    text-align: center;
-    display: block;
-    margin-bottom: 150px;
-}
-/* Fin du style */
-
-input[type="submit"]{
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin : 2em auto ;
-	width: 180px;
-	text-align: center;
-	border-radius: 60px ;
+  color: #000;
+  text-align: center;
+  display: block;
+  margin-bottom: 150px;
 }
 
+/* ====FOOTER==== */
+footer {
+  background-color: white;
+  width: 100%;
+}
+.page-login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-login main {
+  flex: 1;
+}
 footer nav ul {
-	display: flex;
-	justify-content: flex-end;
-	background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  background-color: white;
   height: 60px;
   text-align: center;
   font-size: 14px;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   box-sizing: border-box;
-  
-}
-footer {
-	background-color: white;
-	width: 100%;
+  align-items: center; /* pour centrer verticalement */
+  padding-right: calc((100vw - 1140px) / 2 + 20px); /* marge droite identique au logo */
 }
 
+/* ====MODAL==== */
 .hidden {
   display: none !important;
 }
@@ -274,10 +312,13 @@ footer {
   box-sizing: border-box;
   gap: 10px;
 }
+
 .modal {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
@@ -287,22 +328,15 @@ footer {
 
 .modal-content {
   background: white;
-  padding: 3rem 2rem 2rem 2rem;
+  padding: 50px 70px;
   border-radius: 10px;
   position: relative;
-  width: 630px ; 
+  width: 480px;
   max-height: 90vh;
   overflow-y: auto;
 }
 
-.close-modal {
-  position: absolute;
-  right: 20px;
-  top: 15px;
-  font-size: 25px;
-  cursor: pointer;
-}
-/* Styles pour la modale de galerie */
+.modal-content h3,
 .modal h3 {
   font-family: 'Work Sans';
   font-size: 26px;
@@ -315,11 +349,11 @@ footer {
 .modal-gallery {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 12px; 
+  gap: 12px;
   margin-bottom: 38px;
-  padding-bottom: 47px;
+  padding-bottom: 60px;
   border-bottom: 1px solid #B3B3B3;
-  max-width: 520px; /* Limite la largeur du trait */
+  max-width: 520px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -330,9 +364,8 @@ footer {
 
 .modal-work-item img {
   width: 100%;
-  height: 110px; 
+  height: 110px;
   object-fit: cover;
-  /* Supprime le fond noir sous les images */
 }
 
 .delete-btn {
@@ -349,8 +382,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px; 
-
+  font-size: 10px;
 }
 
 .delete-btn:hover {
@@ -369,51 +401,49 @@ footer {
   cursor: pointer;
   display: block;
   margin: 0 auto;
-  
 }
 
 .add-photo-btn:hover {
   background-color: #0d4a3a;
 }
 
-
-/* Ajustements de la modale */
-.modal-content {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  position: relative;
-  width: 480px; /* Réduit de 630px à 480px */
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-/* Styles pour la modale d'ajout de photo */
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
-
 .back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 24px;
   cursor: pointer;
   color: #000;
   padding: 5px;
 }
-
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #000;
+  padding: 5px;
+}
 .back-btn:hover {
   color: #B1663C;
 }
 
-/* Zone d'upload - dimensions exactes Figma */
 .upload-area {
   background-color: #E8F1F6;
   border-radius: 3px;
-  width: 420px;
+  width: 100%;
+  max-width: 480px;
   height: 170px;
   text-align: center;
   margin: 0 auto 30px auto;
@@ -461,7 +491,6 @@ footer {
   margin: 0;
 }
 
-/* Aperçu de l'image */
 .image-preview {
   position: relative;
   max-width: 129px;
@@ -494,10 +523,16 @@ footer {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-/* Groupes de formulaire */
 .form-group {
-  margin-bottom: 21px;
-  padding: 0 30px; /* Ajout de padding sur les côtés */
+  margin: 0 auto 21px auto;
+  max-width: 480px;
+  padding: 0;
+}
+
+.form-group:last-of-type {
+  padding-bottom: 47px;
+  border-bottom: 1px solid #B3B3B3;
+  margin-bottom: 38px;
 }
 
 .form-group label {
@@ -527,7 +562,27 @@ footer {
   outline: 2px solid #1D6154;
 }
 
-/* Bouton de validation */
+.modal-content form {
+  width: 100%;
+}
+
+/* ====BUTTONS===== */
+.edit-btn {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edit-btn:hover {
+  opacity: 0.8;
+}
+
 .validate-btn {
   font-family: 'Syne';
   font-weight: 700;
@@ -556,47 +611,7 @@ footer {
   cursor: not-allowed;
 }
 
-/* Ajustements pour la largeur de la modale */
-.modal-content form {
-  width: 100%;
-}
-
-/* Style pour le séparateur dans la première modale */
-.modal-gallery {
-  border-bottom: 1px solid #B3B3B3;
-  padding-bottom: 47px;
-  margin-bottom: 38px;
-}
-/* Styles pour le bouton d'édition */
-.edit-btn {
-  background: none;
-  border: none;
-  color: #000;
-  font-size: 14px;
-  cursor: pointer;
-  margin-left: 30px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.edit-btn:hover {
-  opacity: 0.8;
-}
-
-/* Style pour l'en-tête du portfolio en mode édition */
-.portfolio-header {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-/* Classe utilitaire pour cacher des éléments */
-.hidden {
-  display: none !important;
-}
-
-/* Style pour le message d'erreur de connexion */
+/* ====LOGIN ERROR===== */
 .login-error-message {
   color: red;
   margin: 30px 0 20px 0;
@@ -604,5 +619,6 @@ footer {
   font-style: italic;
   font-size: 20px;
 }
+
 
 
