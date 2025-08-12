@@ -88,14 +88,14 @@ h2 {
 }
 
 section {
-  margin: 100px 0;
+  margin: 130px 0;
 }
 
 /* ====HEADER & NAVIGATION==== */
 header {
   display: flex;
   justify-content: space-between;
-  margin: 50px 0 100px;
+  margin: 50px 0 130px;
 }
 
 nav img {
@@ -109,7 +109,7 @@ nav ul {
 }
 
 nav li {
-  padding: 0 15px;
+  padding: 0 25px;
   font-size: 1.2em;
 }
 
@@ -129,28 +129,36 @@ li:hover {
 #introduction {
   display: flex;
   align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 50px;
 }
 
 #introduction figure {
-  flex: 1;
+  flex: 0 0 475px;
 }
 
 #introduction img {
   display: block;
-  margin: auto;
-  width: 80%;
+  width: 475px;
+  height: 355px;
+  object-fit: cover;
 }
 
 #introduction article {
   flex: 1;
+  margin-left: 70px;
+  max-width: 404px;
 }
 
 #introduction h2 {
   margin-bottom: 1em;
+  line-height: 1.2;
 }
 
 #introduction p {
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
+  line-height: 1.2;
 }
 
 /* ====PORTFOLIO SECTION==== */
@@ -209,7 +217,7 @@ li:hover {
 
 /* ====CONTACT & LOGIN==== */
 #contact, #login {
-  width: 50%;
+  width: 35%;
   margin: auto;
 }
 
@@ -226,6 +234,7 @@ li:hover {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
+  width: 380px;
 }
 
 #contact label, #login label {
@@ -279,6 +288,7 @@ footer {
 
 .page-login main {
   flex: 1;
+  margin-top: 50px;
 }
 footer nav ul {
   display: flex;
