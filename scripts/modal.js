@@ -247,7 +247,6 @@ const submitNewWork = () => {
       }
     })
     .then((newWork) => {
-      console.log("Nouveau travail ajouté:", newWork);
 
       // Ajouter le nouveau travail à la liste locale
       allWorks.push(newWork);
@@ -260,7 +259,6 @@ const submitNewWork = () => {
       alert("Votre projet a été ajouté avec succès !");
     })
     .catch((error) => {
-      console.error("Erreur lors de l'ajout:", error);
       alert("Erreur lors de l'ajout du projet. Veuillez réessayer.");
     });
 };
@@ -268,10 +266,8 @@ const submitNewWork = () => {
 // Fonction pour supprimer un travail
 const deleteWork = (workId) => {
   if (confirm("Êtes-vous sûr de vouloir supprimer ce projet ?")) {
-    console.log(`Confirmation reçue pour supprimer le travail ${workId}`);
     const token = localStorage.getItem("token");
-    console.log("Token récupéré pour suppression :", token ? "Oui" : "Non");
-
+   
     fetch(`http://localhost:5678/api/works/${workId}`, {
       method: "DELETE",
       headers: {
@@ -282,23 +278,18 @@ const deleteWork = (workId) => {
         if (response.ok) {
           // Supprimer de la liste locale
           allWorks = allWorks.filter((work) => work.id !== workId);
-          console.log(`Travail ${workId} supprimé localement.`);
+        
 
           // Mettre à jour les deux galeries
           displayWorks(allWorks);
           loadModalGallery();
 
-          console.log(`Travail ${workId} supprimé avec succès du serveur.`);
         } else {
-          console.warn("Erreur lors de la suppression sur le serveur.");
           alert("Erreur lors de la suppression");
         }
       })
       .catch((error) => {
-        console.error("Erreur lors de la suppression :", error);
         alert("Erreur lors de la suppression");
       });
-  } else {
-    console.log(`Suppression du travail ${workId} annulée par l'utilisateur.`);
   }
 };
